@@ -148,7 +148,7 @@ public class CategoryTest {
     }
 
     @Test
-    void givenAValidActiveCategory_whenCallDeactivate_thenReturnCategoryInactivated() {
+    void givenAValidActiveCategory_whenCallDeactivate_thenReturnCategoryInactivated() throws InterruptedException {
         final var expectedName = "Filmes";
         final var expectedDescription = "Filmes de todos os gêneros";
         final var expectedActive = false;
@@ -161,6 +161,8 @@ public class CategoryTest {
 
         Assertions.assertTrue(oldCategory.isActive());
         Assertions.assertNull(oldCategory.getDeletedAt());
+
+        Thread.sleep(20);
 
         final var actualCategory = oldCategory.deactivate();
 
@@ -208,7 +210,7 @@ public class CategoryTest {
     }
 
     @Test
-    public void givenAValidCategory_whenCallUpdate_thenReturnCategoryUpdated() {
+    public void givenAValidCategory_whenCallUpdate_thenReturnCategoryUpdated() throws InterruptedException {
         final var expectedName = "Filmes";
         final var expectedDescription = "Filmes de todos os gêneros";
         final var expectedActive = true;
@@ -220,6 +222,8 @@ public class CategoryTest {
 
         final var updatedAt = oldCategory.getUpdatedAt();
         final var createdAt = oldCategory.getCreatedAt();
+
+        Thread.sleep(20);
 
         final var actualCategory = oldCategory.update(expectedName, expectedDescription, expectedActive);
 
@@ -235,7 +239,7 @@ public class CategoryTest {
     }
 
     @Test
-    public void givenAValidCategory_whenCallUpdateToInactive_thenReturnCategoryUpdated() {
+    public void givenAValidCategory_whenCallUpdateToInactive_thenReturnCategoryUpdated() throws InterruptedException {
         final var expectedName = "Filmes";
         final var expectedDescription = "Filmes de todos os gêneros";
         final var expectedActive = false;
@@ -251,6 +255,8 @@ public class CategoryTest {
         final var updatedAt = oldCategory.getUpdatedAt();
         final var createdAt = oldCategory.getCreatedAt();
 
+        Thread.sleep(20);
+
         final var actualCategory = oldCategory.update(expectedName, expectedDescription, expectedActive);
 
         Assertions.assertDoesNotThrow(() -> actualCategory.validate(new ThrowsValidationHandler()));
@@ -265,7 +271,7 @@ public class CategoryTest {
     }
 
     @Test
-    public void givenAValidCategory_whenCallUpdateWithInvalidParams_thenReturnCategoryUpdated() {
+    public void givenAValidCategory_whenCallUpdateWithInvalidParams_thenReturnCategoryUpdated() throws InterruptedException {
         final String expectedName = null;
         final var expectedDescription = "Filmes de todos os gêneros";
         final var expectedActive = true;
@@ -277,6 +283,8 @@ public class CategoryTest {
 
         final var updatedAt = oldCategory.getUpdatedAt();
         final var createdAt = oldCategory.getCreatedAt();
+
+        Thread.sleep(20);
 
         final var actualCategory = oldCategory.update(expectedName, expectedDescription, expectedActive);
 
