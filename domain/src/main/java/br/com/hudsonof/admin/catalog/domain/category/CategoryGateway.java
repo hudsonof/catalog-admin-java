@@ -12,7 +12,7 @@ public interface CategoryGateway {
 
     Optional<Category> findById(CategoryID anId);
 
-    void update(Category aCategory);
+    Category update(Category aCategory);
 
     Pagination<Category> findAll(CategorySearchQuery aQuery);
 }
