@@ -1,0 +1,17 @@
+services:
+  mysql:
+    container_name: catalog-admin-mysql
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=hudsonof47
+      - MYSQL_DATABASE=catalog_admin
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - "3306:3306"
+    networks:
+      - catalog-admin-network
+
+networks:
+    catalog-admin-network:
+        driver: bridge

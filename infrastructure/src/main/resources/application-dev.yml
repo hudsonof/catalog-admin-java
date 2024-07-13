@@ -1,0 +1,16 @@
+mysql:
+  username: ${MYSQL_USERNAME:root}
+  password: ${MYSQL_PASSWORD:hudsonof47}
+  url: ${MYSQL_URL:localhost:3306}
+  schema: catalog_admin
+
+server:
+  port: 8080
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,text/css,text/javascript,application/javascript
+    min-response-size: 1024
+  undertow:
+    threads:
+      worker: 10
+      io: 2

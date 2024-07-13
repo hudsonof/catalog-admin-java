@@ -7,6 +7,8 @@ public class MainTest {
 
     @Test
     public void testMain() {
+        System.setProperty("spring.profiles.active", "test");
+
         Assertions.assertNotNull(new Main());
         Main.main(new String[] {});
     }
