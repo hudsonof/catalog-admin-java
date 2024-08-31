@@ -5,6 +5,8 @@ import br.com.hudsonof.admin.catalog.domain.validation.ValidationHandler;
 
 import java.time.Instant;
 
+import static java.util.Objects.requireNonNull;
+
 public class Category extends AggregateRoot<CategoryID> implements Cloneable {
     private String name;
     private String description;
@@ -25,8 +27,8 @@ public class Category extends AggregateRoot<CategoryID> implements Cloneable {
         this.name = aName;
         this.description = aDescription;
         this.active = isActive;
-        this.createdAt = aCreatedAt;
-        this.updatedAt = aUpdatedAt;
+        this.createdAt = requireNonNull(aCreatedAt, "'createdAt' should not be null");
+        this.updatedAt = requireNonNull(aUpdatedAt, "'updatedAt' should not be null");
         this.deletedAt = aDeletedAt;
     }
 
