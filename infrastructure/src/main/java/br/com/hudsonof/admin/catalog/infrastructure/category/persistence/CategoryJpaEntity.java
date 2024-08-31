@@ -22,8 +22,8 @@ public class CategoryJpaEntity {
     @Column(name = "description", length = 4000)
     private String description;
 
-    @Column(name = "is_active", nullable = false)
-    private boolean isActive;
+    @Column(name = "active", nullable = false)
+    private boolean active;
 
     @Column(name = "created_at", nullable = false, columnDefinition = "DATETIME(6)")
     private Instant createdAt;
@@ -41,14 +41,14 @@ public class CategoryJpaEntity {
             final String id,
             final String name,
             final String description,
-            final boolean isActive,
+            final boolean active,
             final Instant createdAt,
             final Instant updatedAt,
             final Instant deletedAt) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.isActive = isActive;
+        this.active = active;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
@@ -101,11 +101,11 @@ public class CategoryJpaEntity {
     }
 
     public boolean isActive() {
-        return isActive;
+        return active;
     }
 
     public void setActive(boolean active) {
-        isActive = active;
+        this.active = active;
     }
 
     public Instant getCreatedAt() {
